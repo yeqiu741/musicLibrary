@@ -15,4 +15,9 @@
 }
 .myMusic_firstTitle{
   font-size: 40px;
+  border:1px solid green;
+}
+.myMusic_secondTitle{
+  font-size: 40px;
+  border:1px solid black;
 }
