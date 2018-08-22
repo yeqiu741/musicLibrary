@@ -1,0 +1,25 @@
+.TabItem{
+  display: none;
+}
+.show{
+  display: inline;
+}
+.TabTittleWrap{
+  width: 100%;
+  margin-top:40px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  border-bottom:.5px solid rgba(0, 0, 0, .2)
+}
+.TabTittleWrap div{
+  width: 30%;
+  height: 30px;
+  line-height: 30px;
+}
+.TabTittleWrap img{
+  width: 25px;
+  height: 25px;
+  margin-top:-5px;
+  margin-right: 5px;
+}
