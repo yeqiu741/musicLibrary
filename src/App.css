@@ -5,6 +5,10 @@
 }
 .container_TopTitle{
   width: 100%;
+  top:0;
+  left: 0;
+  right: 0;
+  position: fixed;
 }
 .container_TopTitle_icon{
   float: left;
@@ -18,13 +22,18 @@
   height: 20px;
   margin-bottom: 5px;
 }
-.container_TopTitle_icon span{
-  margin-left: 5px;
-}
 .container_topTitle_title{
   font-size: 20px;
   float: right;
   text-align: center;
   width: 100%;
   margin-top:-32px;
+}
+
+hr{
+  margin-left: 35px;
+  margin-top:5px;
+  width: 30px;
+  border:2px solid #ff2064;
+  border-radius: 10px;
 }
