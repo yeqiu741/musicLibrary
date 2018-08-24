@@ -1,26 +1,78 @@
 .uploadMusic{
   width: 100%;
 }
-.uploadMusic_upload{
-  margin:10px auto;
+.uploadMusic_uploadFromPhone{
+  margin:20px auto;
   width: 90%;
   height: 150px;
   border-radius: 10px;
-  border:1px solid rgba(0, 0, 0, .1)
+  border:1px solid gray;
 }
-.uploadMusic_upload p{
+.uploadMusic_uploadFromPhone p{
   margin-top:10px;
   text-align: center;
   width: 100%;
   font-size: 22px;
 }
-.uploadMusic_upload button{
-  margin-left: 30px;
-  width: 80%;
+.uploadMusic_uploadFromPhone_button{
+  margin:0 auto;
+  width: 70%;
+}
+.uploadMusic_uploadFromPhone_button button{
+  width: 100%;
   color:white;
   height: 50px;
   border-radius: 30px;
-  font-size: 20px;
+  font-size: 15px;
   background-color: #ff2064;
   border:1px solid #ff2064;
+}
+.uploadMusic_uploadFromPc{
+  width: 90%;
+  border:1px solid gray;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.uploadMusic_uploadFromPc p ,span ,mark{
+  margin-top:20px;
+  margin-left: 20px;
+}
+.uploadMusic_uploadFromPc h2{
+  text-align: center;
+  margin-top:20px;
+}
+.uploadMusic_uploadFromPc span{
+  font-size: 18px;
+}
+.uploadMusic_uploadFromPc_button{
+  margin:0 auto;
+  width: 70%;
+}
+.uploadMusic_uploadFromPc h3{
+  margin-top:20px;
+  margin-bottom:20px;
+  text-align: center;
+}
+.uploadMusic_uploadFromPc_button button{
+  width: 100%;
+  color:white;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 30px;
+  font-size: 15px;
+  background-color: #ff2064;
+  border:1px solid #ff2064;
+  margin-bottom: 20px;
+}
+.uploadMusic_uploadFromPc img{
+  width: 20px;
+  height: 16px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+}
+.netUrl{
+  font-size: 25px;
+  color: #ff2064;
+  width: 50%;
+  margin: 20px auto;
 }

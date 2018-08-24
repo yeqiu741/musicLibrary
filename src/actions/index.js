@@ -1,4 +1,7 @@
 import * as actionTypes from '../const/ActionTypes';
+import { normalize } from '../../node_modules/normalizr';
+import * as schemes from '../schema/index';
+
 
 export function changePhotoState(data) {
   return {
@@ -7,8 +10,39 @@ export function changePhotoState(data) {
   };
 }
 
-export function lala() {
+export function login(mid) {
   return {
-    tpye: actionTypes.lala
+    SERVER_API: {
+      type: actionTypes.LOGIN,
+      endpoint: '/login',
+      params: {
+        mid
+      }
+    }
+  };
+}
+
+export function getMyMusic(token) {
+  return {
+    SERVER_API: {
+      type: actionTypes.FETCH_LOCATION_MUSIC,
+      endpoint: '/music/my_list',
+      params: {
+        token
+      },
+      normailzerFun: response => normalize(response.data.list, schemes.MYMUSIC)
+    }
+  };
+}
+export function getRecommendMusic(token) {
+  return {
+    SERVER_API: {
+      type: actionTypes.FETCH_RECOMMEND_MUSIC,
+      endpoint: '/music/recommend_list',
+      params: {
+        token
+      },
+      normailzerFun: response => normalize(response.data.list, schemes.RECOMMENDMUSIC)
+    }
   };
 }

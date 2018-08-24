@@ -1,8 +1,12 @@
 import { schema } from 'normalizr';
 
-const lessonSchema = new schema.Entity('lesson', {}, { idAttribute: 'id' });
-const lessonListSchema = new schema.Array(lessonSchema);
+const myMusic = new schema.Entity('myMusic', {}, {
+  idAttribute: 'id'
+});
+const recommendMusic = new schema.Entity('recommendMusic', {}, {
+  idAttribute: 'id'
+});
 
-export default {
-  lessonListSchema
-};
+export const MYMUSIC = [myMusic];
+export const RECOMMENDMUSIC = [recommendMusic];
+

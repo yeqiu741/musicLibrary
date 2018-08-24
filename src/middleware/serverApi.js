@@ -1,59 +1,78 @@
 import axios from 'axios';
 
 const API_DOMAIN = 'http://xly-wkop.xiaoniangao.cn';
-
-const callServerApi = (endpoint, params, normalizeFuc) => new Promise((resolve, reject) => {
-  axios({
-    method: 'POST',
-    url: API_DOMAIN + endpoint,
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data: params
-  }).then(res => {
-    if (res.data.ret === 1) {
-      return resolve(normalizeFuc ? normalizeFuc(res.data.data) : res.data.data);
-    }
-    return reject(new Error(res.data.errMsg));
-  }).catch(err => reject(err));
+const axiosFetch = axios.create({
+  baseURL: API_DOMAIN,
+  timeout: 60000,
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
 });
 
-/* eslint-disable no-unused-vars */
-export default store => next => action => {
-  if (!action.SERVER_API) {
-    return next(action);
-  }
-  const {
-    type,
-    endpoint,
-    params,
-    normalizeFuc
-  } = action.SERVER_API;
+const callServerApi = apiParams => {
+  const { endpoint, params } = apiParams;
+  return new Promise((resolve, reject) => {
+    axiosFetch({
+      method: 'POST',
+      url: endpoint,
+      data: params
+    })
+      .then(res => {
+        if (res.data.ret === 1) {
+          resolve(res);
+          console.log(res.data);
+        } else {
+          reject(res.data.errMsg);
+        }
+      })
 
-  if (typeof type !== 'string') {
-    throw new Error('type shoudle be a string');
-  }
+      .catch(res => {
+        reject(JSON.stringify(res));
+      });
+  });
+};
+/* eslint-disable consistent-return */
+const serverApi = () => next => action => {
+  if (!action.SERVER_API) { return next(action); }
+  const { type, endpoint, params } = action.SERVER_API;
   if (typeof endpoint !== 'string') {
-    throw new Error('endpoint shoudle be a string');
+    throw new Error('Specify a string endpoint.');
+  }
+  if (typeof type !== 'string') {
+    throw new Error('Specify a string type.');
   }
   if (typeof params !== 'object') {
-    throw new Error('params shoudle be a object');
+    throw new Error('Specify a object params.');
   }
 
-  next({
-    type: `${type}_REQ`
-  });
+  const { normailzerFun } = action.SERVER_API;
+  function actionWith(data) {
+    const finalAction = { ...action, ...data };
+    delete finalAction.SERVER_API;
+    return finalAction;
+  }
+  next(actionWith({
+    type: `${type}_REQ`,
+    __api: { endpoint, params }
+  }));
+  callServerApi({ endpoint, params })
+    .then(res => {
+      const response = typeof (normailzerFun) !== 'undefined' ? normailzerFun(res.data) : res.data;
 
-  return callServerApi(endpoint, params, normalizeFuc)
-    .then(response => {
-      next({
+      next(actionWith({
         type: `${type}_SUC`,
+        __api: { endpoint, params },
         response
-      });
-    }).catch(err => {
-      next({
+      }));
+    })
+    .catch(errMsg => {
+      next(actionWith({
         type: `${type}_FAI`,
-        errMsg: err.errMsg
-      });
+        __api: { endpoint, params },
+        errMsg
+      }));
     });
 };
+
+
+export default serverApi;

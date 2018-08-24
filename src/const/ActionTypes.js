@@ -1,3 +1,5 @@
 /* eslint-disable */
 export const CHANGEPHOTOSTATE = 'CHANGEPHOTOSTATE';
-export const lala = 'lala'
+export const LOGIN = 'LOGIN';
+export const FETCH_LOCATION_MUSIC = 'FETCH_LOCATION_MUSIC';
+export const FETCH_RECOMMEND_MUSIC = 'FETCH_RECOMMEND_MUSIC';

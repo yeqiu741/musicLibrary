@@ -1,0 +1,32 @@
+.serachMusic{
+  width: 100%;
+
+}
+.serachMusic_serach{
+  margin-top:15px;
+  width: 100%;
+}
+.serachMusic_serach input{
+  margin-left: 3%;
+  width: 80%;
+  background-color: #fff;
+  font-size: 10px;
+  border:1px solid rgba(0, 0, 0, .2);
+  height: 30px;
+  line-height: 30px;
+  border-radius: 3px;
+}
+.serachMusic_serach button{
+  background-color: #fff;
+  border:1px solid white;
+  float: right;
+  margin-top:3px;
+  margin-right: 3%;
+  color: rgba(0, 0, 0, .2);
+}
+.serachMusic_serach img{
+  position: absolute;
+  width: 30px;
+  width: 30px;
+  margin-left: 10px;
+}

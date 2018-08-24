@@ -18,7 +18,7 @@ export default class TabsContainer extends Component {
       <div>
         <div className="TabTittleWrap">
           {React.Children.map(this.props.children, (Element, index) => (
-            <div onClick={() => { actions.changePhotoState(index) }} className={this.checkTittleIndex(index)}><img src={Element.props.icon} alt="图片加载失败！"/>{Element.props.name}</div>
+            <div onClick={() => { actions.changePhotoState(index) }} className={this.checkTittleIndex(index)}><img src={Element.props.icon} />{Element.props.name}</div>
             ))}
         </div>
         <div className="TabItemWrap">

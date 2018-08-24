@@ -1,10 +1,10 @@
 import * as actionTyoes from '../const/ActionTypes';
 
-const init_list = {
+const init_state = {
   currentIndex: 0
 };
 /* eslint-disable */
-const photoState = (state = init_list, action) => {
+const photoState = (state = init_state, action) => {
   switch (action.type) {
     case actionTyoes.CHANGEPHOTOSTATE:
       const currentIndex = action.data;
