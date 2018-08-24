@@ -2,7 +2,7 @@
   width: 100%;
 }
 .uploadMusic_uploadFromPhone{
-  margin:20px auto;
+  margin:10px auto;
   width: 90%;
   height: 150px;
   border-radius: 10px;
@@ -49,8 +49,8 @@
   width: 70%;
 }
 .uploadMusic_uploadFromPc h3{
-  margin-top:20px;
-  margin-bottom:20px;
+  margin-top:10px;
+  margin-bottom:10px;
   text-align: center;
 }
 .uploadMusic_uploadFromPc_button button{
@@ -62,7 +62,6 @@
   font-size: 15px;
   background-color: #ff2064;
   border:1px solid #ff2064;
-  margin-bottom: 20px;
 }
 .uploadMusic_uploadFromPc img{
   width: 20px;

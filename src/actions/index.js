@@ -9,7 +9,6 @@ export function changePhotoState(data) {
     data
   };
 }
-
 export function login(mid) {
   return {
     SERVER_API: {

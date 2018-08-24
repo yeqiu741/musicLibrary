@@ -7,6 +7,7 @@ import * as Actioncreators from '../actions/index';
 import UploadMusic from '../components/UploadMusic/UploadMusic';
 import SerachMusic from '../components/SerachMusic/SerachMusic';
 import '../App.css';
+import PlayPage from '../components/PlayPage/PlayPage';
 
 
 const iconReturn = require('../img/return.png');
@@ -18,6 +19,12 @@ const iconUploadmusic = require('../img/upload.png');
 const iconUploadmusic_do = require('../img/upload_do.png');
 
 class MusicLibrary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      musicId: -1
+    };
+  }
   componentDidMount() {
     const { actions } = this.props;
     actions.login(110);
@@ -43,25 +50,37 @@ class MusicLibrary extends Component {
   handleGoBackClick = () => {
     window.alert('go back');
   }
+  callBackMusicBoxId = index => {
+    this.setState({
+      musicId: index
+    });
+  }
   render() {
-    const { photoState, actions, login } = this.props;
+    const {
+      photoState, actions, login, entities, myMusic, recommendMusic
+    } = this.props;
     return (
       <div className="container">
         <div className="container_TopTitle">
           <img src={iconReturn} alt="图片加载失败！" /><span>{login.nick}</span>
         </div>
         <TabsControl actions={actions} photoState={photoState}>
-          <div name="我的音乐" icon={this.handleMyMusicPictureChangeClick(photoState)} ><MyMusic /></div>
+          <div name="我的音乐" icon={this.handleMyMusicPictureChangeClick(photoState)} ><MyMusic actions={actions} entities={entities} myMusic={myMusic} recommendMusic={recommendMusic} callBackId={this.callBackMusicBoxId} /></div>
           <div name="搜索音乐" icon={this.handleSerachMusicPictureChangeClick(photoState)}><SerachMusic /></div>
           <div name="上传音乐" icon={this.handleUploadMusicChangeClick(photoState)}><UploadMusic /></div>
         </TabsControl>
+        <PlayPage entities={entities} musicId={this.state.musicId} />
       </div>
     );
   }
 }
 const mapStateToProps = state => {
-  const { photoState, login } = state;
-  return { photoState, login };
+  const {
+    photoState, login, entities, myMusic, recommendMusic
+  } = state;
+  return {
+    photoState, login, entities, myMusic, recommendMusic
+  };
 };
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(Actioncreators, dispatch) });
 export default connect(mapStateToProps, mapDispatchToProps)(MusicLibrary);

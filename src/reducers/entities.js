@@ -19,6 +19,7 @@ const recommendMusic = (state={},action) => {
   switch(action.type){
     case `${actionTypes.FETCH_RECOMMEND_MUSIC}_SUC`:{
       const {entities} = action.response
+      console.log(entities)
       return{
         ...state,
         ...entities.recommendMusic

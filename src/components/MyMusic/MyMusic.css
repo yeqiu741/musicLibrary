@@ -13,14 +13,14 @@
   margin-top:12px;
   margin-bottom: 12px;
 }
-.myMusic_firstTitle{
+.myMusic_firstTitle , .myMusic_secondTitle{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
   font-size: 20px;
-  font-weight: bold;
+  border-bottom: .5px solid rgba(0,0,0,.2);
 }
-.myMusic_secondTitle{
-  font-size: 20px;
-  font-weight: bold;
-}
+
 .myMusic_bottomButton{
   position:fixed;
   width: 100%;
@@ -29,8 +29,6 @@
   left: 0;
   right: 0;
   border:1px solid rgba(0,0,0,.2);
-}
-.myMusic_bottomButton{
   display: flex;
   justify-content: space-around;
 }
@@ -38,7 +36,6 @@
   text-align: center;
   line-height: 15px;
   width: 65px;
-  color: rgba(0,0,0,.2);
 }
 .myMusic_bottomButton p{
   margin-top:5px;
@@ -47,4 +44,69 @@
   margin-top:10px;
   width: 20px;
   height: 20px;
+}
+.myMusic_locationMusicList{
+  position: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.musicListBox{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: .5px solid rgba(0,0,0,.2);
+}
+.myMusic_recommentMusicList{
+  position: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.selectIconBox{
+  float: left;
+  width: 10%;
+  height: 100%;
+}
+.selectIconBox img{
+  width: 25px;
+  height: 35px;
+  margin-left: 5px;
+}
+.musicName{
+  float: right;
+  width: 90%;
+  height: 100%;
+}
+.hidden{
+  display: none;
+  z-index: -100;
+}
+.circle{
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  margin-top:5px;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 15px;
+  background-color: #ff2064;
+  border:1px solid #ff2064;
+}
+.unshow{
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  margin-top:10px;
+  border-radius: 15px;
+  border:1px solid gray;
+  background-color: rgba(0,0,0,.2);
+  font-size: 0px;
+}
+.gray{
+  color: rgba(0,0,0,.2);
+}
+.black{
+  color: black;
 }
