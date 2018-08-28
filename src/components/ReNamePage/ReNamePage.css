@@ -1,0 +1,46 @@
+.reNamePage{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.2);
+}
+.reNamePage_InputPane{
+  margin:50% auto;
+  width: 80%;
+  background-color: #fff;
+}
+.reNamePage_InputPane_top{
+ width: 100%;
+}
+.reNamePage_InputPane_top p{
+  text-align: center;
+  font-size: 15px;
+  padding-top:30px;
+}
+.reNamePage_InputPane_top input{
+  width: 80%;
+  margin-left: 10%;
+  border: .5px solid rgba(0,0,0,.2);
+  height: 30px;
+  margin-bottom: 10px;
+  line-height: 30px;
+  text-align:center;
+}
+.reNamePage_InputPane_button{
+  width: 100%;
+  display: flex;
+  margin-top:20px;
+}
+.reNamePage_InputPane_button div{
+  width: 50%;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid rgba(0,0,0,.1);
+  line-height: 40px;
+  height: 40px;
+}
+.reNamePage_InputPane_button_sure{
+  color: aquamarine;
+}

@@ -4,12 +4,26 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0,0,0,.2); 
+}
+.unshow{
+  display: none;
 }
 .playPage_supernatant{
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: white;
+  width:100%;
+  z-index: 100;
+}
+.playPage_supernatant p{
+  float: right;
+  width: 30px;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 15px;
+  margin-top:10px;
+  color:#ff2064;
 }

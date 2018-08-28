@@ -9,6 +9,24 @@ export function changePhotoState(data) {
     data
   };
 }
+export function deleteMusic(data) {
+  return {
+    type: actionTypes.DELETEMUSIC,
+    data
+  };
+}
+export function changeMymusicName(data) {
+  return {
+    type: actionTypes.CHANGEMYMUSICNAME,
+    data
+  };
+}
+export function reName(data) {
+  return {
+    type: actionTypes.RENAME,
+    data
+  };
+}
 export function login(mid) {
   return {
     SERVER_API: {
@@ -20,7 +38,6 @@ export function login(mid) {
     }
   };
 }
-
 export function getMyMusic(token) {
   return {
     SERVER_API: {

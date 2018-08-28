@@ -1,14 +1,17 @@
 import * as actionTpyes from '../const/ActionTypes';
 
 const init_state = {
-  nick: ''
+  userName: '',
+  loginToken: ''
 };
-/* eslint-disable */
+
 const login = (state = init_state, action) => {
   switch (action.type) {
-    case `${actionTpyes.LOGIN}_SUC`:
-      const nick = action.response.data.nick;
-      return Object.assign({}, state, { nick });
+    case `${actionTpyes.LOGIN}_SUC`: {
+      const userName = action.response.data.nick;
+      const loginToken = action.response.data.token;
+      return Object.assign({}, state, { userName, loginToken });
+    }
     default:
       return state;
   }

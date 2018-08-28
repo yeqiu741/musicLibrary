@@ -8,7 +8,6 @@ const axiosFetch = axios.create({
     'Content-Type': 'application/x-www-form-urlencoded'
   }
 });
-
 const callServerApi = apiParams => {
   const { endpoint, params } = apiParams;
   return new Promise((resolve, reject) => {
@@ -25,7 +24,6 @@ const callServerApi = apiParams => {
           reject(res.data.errMsg);
         }
       })
-
       .catch(res => {
         reject(JSON.stringify(res));
       });
@@ -44,7 +42,6 @@ const serverApi = () => next => action => {
   if (typeof params !== 'object') {
     throw new Error('Specify a object params.');
   }
-
   const { normailzerFun } = action.SERVER_API;
   function actionWith(data) {
     const finalAction = { ...action, ...data };
@@ -58,7 +55,6 @@ const serverApi = () => next => action => {
   callServerApi({ endpoint, params })
     .then(res => {
       const response = typeof (normailzerFun) !== 'undefined' ? normailzerFun(res.data) : res.data;
-
       next(actionWith({
         type: `${type}_SUC`,
         __api: { endpoint, params },
@@ -73,6 +69,4 @@ const serverApi = () => next => action => {
       }));
     });
 };
-
-
 export default serverApi;
